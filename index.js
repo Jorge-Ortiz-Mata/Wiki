@@ -28,11 +28,23 @@ const articleSchema = new mongoose.Schema({
 // ---------------- MODEL ------------------
 const Article = mongoose.model("Article", articleSchema);
 // -----------------------------------------
+// ----------------- GET -------------------
+app.get("/", function(req, res){
+    res.render("pages/home");
+})
+
+app.get("/articles", function(req, res){
+    Article.find({}, function(err, articlesFounded){
+        if(!err){
+            res.render("articles/index", {articles: articlesFounded});
+        } else {
+            res.send(err);
+        }
+    });
+});
+// -----------------------------------------
 // ---------------- PORTS ------------------
 app.listen(process.env.PORT || port, () => {
     console.log("Listening on port 3000");
-    Article.find({}, function(err, articles){
-        console.log(articles);
-    });
 });
 // -----------------------------------------
