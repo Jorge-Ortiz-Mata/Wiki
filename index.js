@@ -79,6 +79,56 @@ app.route("/articles/:article")
                 res.send("There's not article with that name.")
             }
         });
+    })
+    .put((req, res) => {
+        Article.replaceOne(
+            {
+                title: req.params.article
+            }, 
+            req.body
+            , 
+            function(err){
+                if(err){
+                    res.send(err);
+                } else {
+                    res.send("Article successfully updated.");
+                }
+            }
+        );
+    })
+    .patch((req, res) => {
+        Article.updateOne(
+            {
+                title: req.params.article
+            },
+            req.body
+            ,
+            function(err){
+                if(err){
+                    res.send(err)
+                } else {
+                    res.send("Article successfully updated.");
+                }
+            }
+        );
+    })
+    .delete((req, res) => {
+        Article.deleteOne(
+            {
+                title: req.params.article
+            },
+            function(err, article){
+                if(err){
+                    res.send(err);
+                } else if(article) {
+                    res.send("Article delete successfully.");
+                    console.log(article);
+                } else {
+                    res.send("The article wasn't founded.");
+                    console.log(article);
+                }
+            }
+        );
     });
 // -----------------------------------------
 // ---------------- PORTS ------------------
