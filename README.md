@@ -47,4 +47,10 @@ Robot3T allows us to read our database intead of using the Linux Shell. For more
 All this information, you can check out by visiing the next link: 
 * URL: https://www.w3schools.com/tags/ref_urlencode.asp
 
+## Author.
+
+* Jorge Ortiz.
+* Software engineer.
+* ortiz.mata.jorge@gmail.com
+* San Luis Potosí, S.L.P., México. 
 
