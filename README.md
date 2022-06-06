@@ -24,3 +24,16 @@ Or you can follow the next instructions:
 * Create a symbolic link running: `sudo ln -s /opt/Postman/Postman /usr/bin/postman`.
 
 * Open desktop Postman: `postman`.
+
+## Robot3T.
+
+Robot3T allows us to read our database intead of using the Linux Shell. For more inforamtion, you can check out the next URL.
+
+* URL: https://linuxtutorialhub.com/how-to-install-robo3trobmongo-on-ubuntu-18-04-20-04/
+
+## Notes.
+
+* In order to get a URL that contains spaces, you can overwite them by adding: `%20`. 
+
+All this information, you can check out by visiing the next link: 
+* URL: https://www.w3schools.com/tags/ref_urlencode.asp
