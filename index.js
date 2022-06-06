@@ -36,9 +36,35 @@ app.get("/", function(req, res){
 app.get("/articles", function(req, res){
     Article.find({}, function(err, articlesFounded){
         if(!err){
-            res.render("articles/index", {articles: articlesFounded});
+            res.send(articlesFounded);
         } else {
             res.send(err);
+        }
+    });
+});
+// -----------------------------------------
+// ---------------- POST ------------------
+app.post("/articles", (req, res) => {
+    const newArticle = new Article({
+        title: req.body.title,
+        content: req.body.content
+    });
+    newArticle.save(function(err){
+        if(err){
+            res.send(err);
+        } else {
+            res.send("Successfully article created.")
+        }
+    });
+});
+// -----------------------------------------
+// ---------------- DELETE ------------------
+app.delete("/articles", (req, res) => {
+    Article.deleteMany({}, function(err, articles){
+        if(err){
+            res.send(err)
+        } else {
+            res.send("It successfully deleted all articles.")
         }
     });
 });
